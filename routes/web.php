@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('adminTemplate');
+    return view('welcome');
+});
+
+Route::get('/origin', function () {
+    return view('originAdmin');
 });
 
 Route::get('/admin', function () {
-    return view('adminTemplate');
+    return view('includes.supreme');
 });
 
 

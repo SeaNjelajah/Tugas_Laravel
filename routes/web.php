@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommandWeb;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::redirect('/', '/admin');
+
 Route::get('/origin', function () {
     return view('originAdmin');
 });
@@ -24,5 +27,7 @@ Route::get('/origin', function () {
 Route::get('/admin', function () {
     return view('includes.supreme');
 });
+
+Route::get('/models', [CommandWeb::class, 'index']);
 
 

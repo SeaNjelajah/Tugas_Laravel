@@ -28,19 +28,23 @@
           <table class="table table-hover text-nowrap">
             <thead>
               <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Nama Tank</th>
                 <th>Meriam</th>
                 <th>Negara</th>
+                <th>Options</th>
               </tr>
             </thead>
             <tbody>
+            <?php $num = 1 ?>
             @foreach ($data as $item)
+            
             <tr>
-                <td>{{ $item['id'] }}</td>
+                <td>{{ $num++ }}</td>
                 <td>{{ $item['NamaTank'] }}</td>
                 <td>{{ $item['Meriam'] }}</td>
                 <td><span class="tag">{{ $item['Negara'] }}</span></td>
+                <td><a href="/models/{{ $item['id'] }}" class="btn btn-outline-danger">Hapus</a></td>
             </tr>
             @endforeach
             </tbody>

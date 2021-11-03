@@ -29,5 +29,6 @@ Route::get('/admin', function () {
 });
 
 Route::get('/models', [CommandWeb::class, 'index']);
+Route::get('/models/{slug}', [CommandWeb::class, 'hapus']);
 
 

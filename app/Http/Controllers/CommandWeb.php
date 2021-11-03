@@ -10,5 +10,9 @@ class CommandWeb extends Controller
     public function index () {
         return view('models', ['data' => TabelData::all()]);
     }
-    
+
+    public function hapus ($id) {
+        TabelData::all()->find($id)->delete();
+        return redirect()->back();
+    }
 }

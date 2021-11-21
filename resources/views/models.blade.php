@@ -37,8 +37,7 @@
             </thead>
             <tbody>
             <?php $num = 1 ?>
-            @foreach ($data as $item)
-            
+            @foreach ($data as $item)            
             <tr>
                 <td>{{ $num++ }}</td>
                 <td>{{ $item['NamaTank'] }}</td>

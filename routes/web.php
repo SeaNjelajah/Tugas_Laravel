@@ -26,9 +26,20 @@ Route::get('/origin', function () {
 
 Route::get('/admin', function () {
     return view('includes.supreme');
-});
+})->name('admin');
 
-Route::get('/models', [CommandWeb::class, 'index']);
-Route::get('/models/{slug}', [CommandWeb::class, 'hapus']);
+Route::get('/models', [CommandWeb::class, 'index'])->name('Ttank');
+Route::get('/models/{slug}', [CommandWeb::class, 'hapus'])->name('TDtank');
 
+Route::get('/Product', [CommandWeb::class, 'ProductShow'])->name('TProduct');
+Route::post('/Product/Delete', [CommandWeb::class, 'ProductDelete'])->name('TDProduct');
+Route::post('/Product/Add', [CommandWeb::class, 'ProductAdd'])->name('AProduct');
+
+Route::get('/Category', [CommandWeb::class, 'CategoryShow'])->name('TCategory');
+Route::post('/Category/Delete', [CommandWeb::class, 'CategoryDelete'])->name('TDCategory');
+Route::post('/Category/Add', [CommandWeb::class, 'CategoryAdd'])->name('ACategory');
+
+Route::get('/Customer', [CommandWeb::class, 'CustomerShow'])->name('TCustomer');
+Route::post('/Customer/Delete', [CommandWeb::class, 'CustomerDelete'])->name('TDCustomer');
+Route::post('/Customer/Add', [CommandWeb::class, 'CustomerAdd'])->name('ACustomer');
 

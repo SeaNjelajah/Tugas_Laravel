@@ -5,53 +5,173 @@
 @endsection
 
 @section('content')
-<div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Responsive Hover Table</h3>
+  @include($content)
+@endsection
 
-          <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+@section('script')
+@if (Route::is('TProduct'))
+<script>
 
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-default">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
-          <table class="table table-hover text-nowrap">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Nama Tank</th>
-                <th>Meriam</th>
-                <th>Negara</th>
-                <th>Options</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php $num = 1 ?>
-            @foreach ($data as $item)            
-            <tr>
-                <td>{{ $num++ }}</td>
-                <td>{{ $item['NamaTank'] }}</td>
-                <td>{{ $item['Meriam'] }}</td>
-                <td><span class="tag">{{ $item['Negara'] }}</span></td>
-                <td><a href="/models/{{ $item['id'] }}" class="btn btn-outline-danger">Hapus</a></td>
-            </tr>
-            @endforeach
-            </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-    </div>
-  </div>
+  var checkOb = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+  }
+
+  function checking (c) {
+      var confirm = 0;
+      for (let a = 1;a <= 4; a++) {        
+        if (checkOb[a] == 1) {
+          confirm = 1;
+          continue;
+        } else {
+          confirm = 0;
+          document.getElementById('SCreate').className = "btn btn-primary text-muted";
+          document.getElementById('SCreate').type = 'button';
+          break;
+        }
+      }
+
+      if (confirm == 1) {
+        document.getElementById('SCreate').className = "btn btn-primary";
+        document.getElementById('SCreate').type = 'submit';
+      }
+  }
+
+
+  numberE = (where, id) => {
+    if (!isNaN(where.value) && where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking(checkOb);
+    } else {
+      if (checkOb[id] != 0) checkOb[id] = 0;
+      checking(checkOb);
+    }
+  }
+ 
+
+  checkE = (where, id) => {
+    if (where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking(checkOb);
+    } else {
+      if (checkOb[id] !=0 ) checkOb[id] = 0;
+      checking(checkOb);
+    }
+  }
+
+  
+  
+</script>
+@elseif (Route::is('TCategory'))
+<script>
+
+  var checkOb = {
+    1: 0,
+    2: 0,
+  }
+
+  function checking () {
+      var confirm = 0;
+      for (let a = 1;a <= 2; a++) {        
+        if (checkOb[a] == 1) {
+          confirm = 1;
+          continue;
+        } else {
+          confirm = 0;
+          document.getElementById('SCreate').className = "btn btn-primary text-muted";
+          document.getElementById('SCreate').type = 'button';
+          break;
+        }
+      }
+
+      if (confirm == 1) {
+        document.getElementById('SCreate').className = "btn btn-primary";
+        document.getElementById('SCreate').type = 'submit';
+      }
+  }
+
+
+  numberE = (where, id) => {
+    if (!isNaN(where.value) && where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking(checkOb);
+    } else {
+      if (checkOb[id] != 0) checkOb[id] = 0;
+      checking(checkOb);
+    }
+  }
+ 
+
+  checkE = (where, id) => {
+    if (where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking();
+    } else {
+      if (checkOb[id] !=0 ) checkOb[id] = 0;
+      checking();
+    }
+  }
+
+  
+  
+</script>
+@elseif (Route::is('TCustomer'))
+<script>
+
+  var checkOb = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0
+  }
+
+  function checking () {
+      var confirm = 0;
+      for (let a = 1;a <= 4; a++) {        
+        if (checkOb[a] == 1) {
+          confirm = 1;
+          continue;
+        } else {
+          confirm = 0;
+          document.getElementById('SCreate').className = "btn btn-primary text-muted";
+          document.getElementById('SCreate').type = 'button';
+          break;
+        }
+      }
+
+      if (confirm == 1) {
+        document.getElementById('SCreate').className = "btn btn-primary";
+        document.getElementById('SCreate').type = 'submit';
+      }
+  }
+
+
+  numberE = (where, id) => {
+    if (!isNaN(where.value) && where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking(checkOb);
+    } else {
+      if (checkOb[id] != 0) checkOb[id] = 0;
+      checking(checkOb);
+    }
+  }
+ 
+
+  checkE = (where, id) => {
+    if (where.value) {
+      if (checkOb[id] != 1) checkOb[id] = 1;
+      checking();
+    } else {
+      if (checkOb[id] !=0 ) checkOb[id] = 0;
+      checking();
+    }
+  }
+
+  
+  
+</script>
+@endif
+
 @endsection

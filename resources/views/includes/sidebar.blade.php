@@ -44,18 +44,38 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="{{ Route('admin') }}" class="nav-link {{ (Route::is('admin')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./models" class="nav-link">
+                <a href="{{ Route('Ttank') }}" class="nav-link {{ (Route::is('Ttank')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Table show</p>
+                  <p>Table Tank</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ Route('TProduct') }}" class="nav-link {{ (Route::is('TProduct')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Product</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ Route('TCategory') }}" class="nav-link {{ (Route::is('TCategory')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Category</p>
                 </a>
               </li>
               
+              <li class="nav-item">
+                <a href="{{ Route('TCustomer') }}" class="nav-link {{ (Route::is('TCustomer')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Customer</p>
+                </a>
+              </li>
 
             </ul>
           </li>
